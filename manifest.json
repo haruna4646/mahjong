@@ -1,0 +1,17 @@
+{
+    "name": "麻雀点数計算",
+    "short_name": "麻雀計算",
+    "description": "麻雀の翻・符・点数を計算するアプリ",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#f7a8c4",
+    "lang": "ja",
+    "icons": [
+        {
+            "src": "./assets/icons/icon.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        }
+    ]
+}

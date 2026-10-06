@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="麻雀計算">
+    <title>麻雀点数計算</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="./assets/icons/icon.png">
+</head>
+
+<body>
+    <main class="app">
+        <header>
+            <p class="eyebrow">M.LEAGUE RULE / 4人麻雀</p>
+            <h1>麻雀点数計算</h1>
+            <p>役と手牌の条件を選ぶだけ。翻・符・点数までまとめて計算します。</p>
+        </header>
+        <section class="card">
+            <h2>1. 和了条件</h2>
+            <div class="seg" data-radio="dealer">
+                <button class="active" data-value="child">子</button>
+                <button data-value="dealer">親</button>
+            </div>
+            <div class="seg" data-radio="win">
+                <button class="active" data-value="ron">ロン</button>
+                <button data-value="tsumo">ツモ</button></div>
+            <div class="seg" data-radio="menzen">
+                <button class="active" data-value="closed">門前</button>
+                <button data-value="open">鳴きあり</button></div>
+        </section>
+        <section class="card">
+            <h2>2. 役</h2>
+            <p class="hint">成立している役をタップ</p>
+            <div id="yakuArea"></div>
+            <details>
+                <summary>役満を選ぶ</summary>
+                <div id="yakumanArea" class="chips"></div>
+            </details>
+        </section>
+        <section class="card">
+            <h2>3. ドラ</h2>
+            <div class="counters">
+                <label>ドラ <input id="dora" type="number" inputmode="numeric" min="0" max="20" value="0"></label>
+                <label>赤ドラ <input id="redDora" type="number" inputmode="numeric" min="0" max="3" value="0"></label>
+                <label>裏ドラ <input id="uraDora" type="number" inputmode="numeric"min="0" max="20" value="0"></label>
+            </div>
+        </section>
+        <section class="card" id="fuSection">
+            <h2>4. 符の条件</h2>
+            <div class="field">
+                <label>待ち</label>
+                <select id="waitType">
+                    <option value="ryanmen">両面</option>
+                    <option value="shanpon">シャボ</option>
+                    <option value="kanchan">カンチャン</option>
+                    <option value="penchan">ペンチャン</option>
+                    <option value="tanki">単騎</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>雀頭</label>
+                <select id="pairType">
+                    <option value="normal">数牌・客風牌</option>
+                    <option value="haku">白</option>
+                    <option value="hatsu">發</option>
+                    <option value="chun">中</option>
+                    <option value="jikaze">自風</option>
+                    <option value="bakaze">場風</option>
+                    <option value="renpu">連風牌</option>
+                </select>
+            </div>
+            <h3>刻子・槓子</h3>
+            <p class="hint">順子は0符なので追加不要です。</p>
+            <div id="melds"></div><button id="addMeld" class="sub">＋ 刻子・槓子を追加</button>
+        </section>
+        <div id="error" class="error" hidden></div><button id="calculate" class="calculate">計算する</button>
+        <section id="result" class="result" hidden>
+            <p id="limit" class="limit"></p>
+            <div id="score" class="score"></div>
+            <p id="hanFu" class="hanfu"></p>
+            <div id="selectedResult" class="selected"></div>
+            <details id="fuDetails">
+                <summary>符の内訳を見る</summary>
+                <div id="fuBreakdown"></div>
+            </details>
+        </section>
+        <button id="reset" class="reset">リセット</button>
+        <footer>Mリーグ公式戦ルールを基準にした個人用計算機</footer>
+    </main>
+    <script src="js/yaku.js"></script>
+    <script src="js/fu.js"></script>
+    <script src="js/score.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
